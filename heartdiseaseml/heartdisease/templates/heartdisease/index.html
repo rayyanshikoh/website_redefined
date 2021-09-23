@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI</title>
+    <style>  .myDiv {
+      border: 50px double white;
+    }</style>
+    {% load static %}
+    <link rel="stylesheet"  href="{%  static  'bootstrap.min.css'  %}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Heart Disease Machine Learning Deployment</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="myDiv">
+
+  <h1>Heart Disease ML</h1>
+  <table class="table table-hover">
+    <tr>
+<br>
+    </tr>
+    <tr class="table-primary">
+      <th scope="row" style="width:1000px;height:450px;">This AI is an example of potential uses of Artificial Intelligence in the 
+      field of healthcare. This features an accuracy of 82% The source code of the artificial Intelligence can be seen on my <a href="https://github.com/rayyanshikoh/Heart-Attack">Github Page
+      </a><br>DISCLAIMER: Please be aware that this is not a substitute to a doctors advice. Always consult your doctor and be aware that this 
+      was made by someone who is not a medical doctor. Enjoy! </th>
+      <td><img src="{% static 'Human_Heart.png'%}" alt="A picture of a Human Heart" style="width:300px;height:400px;"></td> 
+    </tr>
+  </table>
+{% block content %}
+
+<form action="results" method="POST">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Form</legend>
+        <div class="form-group"></div>
+          <label class="col-form-label mt-4">Age</label>
+          <input type="text" class="form-control" placeholder="Age" name="age">
+      <div class="form-group">
+        <label for="exampleSelect1" class="form-label mt-4">Sex</label>
+        <select class="form-select" id="sex" name="sex">
+          <option>0</option>
+          <option>1</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect1" class="form-label mt-4">Chest Pain</label>
+        <select class="form-select" id="cp" name="cp">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleTextarea" class="form-label mt-4">Resting Blood Pressure</label>
+        <textarea class="form-control" id="exampleTextarea" name="trestbps" rows="1"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleTextarea" class="form-label mt-4">Cholestrol</label>
+        <textarea class="form-control" id="exampleTextarea" name="chol" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect1" class="form-label mt-4">Fasting Blood Sugar</label>
+        <select class="form-select" id="exampleSelect1" name="fbs">
+          <option>0</option>
+          <option>1</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect1" class="form-label mt-4">Resting Electrocardiographic Results</label>
+        <select class="form-select" id="exampleSelect1" name="restecg">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleTextarea" class="form-label mt-4">Max. Heart rate achieved</label>
+        <textarea class="form-control" id="exampleTextarea" rows="1" name="thalach"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect1" class="form-label mt-4">Excercise Induced Angina</label>
+        <select class="form-select" id="exampleSelect1" name="exang">
+          <option>0</option>
+          <option>1</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleTextarea" class="form-label mt-4">ST depression induced by excercise relative to rest</label>
+        <textarea class="form-control" id="exampleTextarea" name="oldpeak" rows="1"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect1" class="form-label mt-4">the slope of the peak exercise ST segment (1 = upsloping; 2 = flat; 3 = downsloping)</label>
+        <select class="form-select" id="exampleSelect1" name="slope">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect1" class="form-label mt-4">Number of major vessels (0-3) colored by flourosopy</label>
+        <select class="form-select" id="exampleSelect1" name="ca">
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect1" class="form-label mt-4">thal - 3 = normal; 6 = fixed defect; 7 = reversable defect</label>
+        <select class="form-select" id="exampleSelect1" name="thal">
+          <option>3</option>
+          <option>6</option>
+          <option>7</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+</form>
+{% endblock %}
+</div>
+</body>
+</html>
